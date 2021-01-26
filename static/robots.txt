@@ -1,0 +1,3 @@
+user-agent: *
+allow: *
+sitemap: https://mhffdq.github.io/sitemap.xml
