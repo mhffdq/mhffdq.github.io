@@ -1,5 +1,9 @@
 baseURL = "https://mhffdq.github.io/"
 languageCode = "ja"
 hasCJKLanguage = "true"
-title = "My New Hugo Site"
+title = "JME's blog"
 enableRobotsTXT = "true"
+theme = "Mainroad"
+
+[permalinks]
+  post = "/blog/:year/:month/:day/:slug/"
