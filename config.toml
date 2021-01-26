@@ -6,4 +6,4 @@ enableRobotsTXT = "true"
 theme = "Mainroad"
 
 [permalinks]
-  post = "/blog/:year/:month/:day/:slug/"
+  post = "/post/:year/:month/:day/:slug/"

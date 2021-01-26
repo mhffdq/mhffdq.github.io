@@ -2,6 +2,7 @@
 title = "自己紹介"
 type = "about"
 date = "2021-01-25"
+slug = "about"
 +++
 
 
