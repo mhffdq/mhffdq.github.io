@@ -4,6 +4,3 @@ hasCJKLanguage = "true"
 title = "JME's blog"
 enableRobotsTXT = "true"
 theme = "Mainroad"
-
-[permalinks]
-  post = "/post/:year/:month/:day/:slug/"
