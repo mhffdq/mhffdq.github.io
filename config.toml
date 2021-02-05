@@ -27,7 +27,7 @@ enableGitInfo = true
   # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
   
 [Params.widgets.social]
-  witter = "JME_KH"
+  twitter = "JME_KH"
   
   [[Menus.main]]
   Name = "トップ"
