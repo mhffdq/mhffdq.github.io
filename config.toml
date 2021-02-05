@@ -10,6 +10,12 @@ enableGitInfo = true
   name = "jme/k.h"
   bio = "管理人"
   
+[frontmatter]
+date = ["date", "publisheDate", "lastmod"]
+lastmod = [":git", "lastmod", "date", "publishDate"]
+publishDate = ["publishDate", "date"]
+expiryDate = ["expiryDate"]
+
 [Params]
    twitter_cards = true # Enable Twitter Cards if true
    pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
