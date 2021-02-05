@@ -5,7 +5,7 @@ hasCJKLanguage = "true"
 title = "JME's blog"
 enableRobotsTXT = "true"
 theme = "Mainroad"
-
+enableGitInfo = true
 [Author] # Used in authorbox
   name = "jme/k.h"
   bio = "管理人"
