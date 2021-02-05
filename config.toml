@@ -1,6 +1,7 @@
 baseURL = "https://mhffdq.github.io/"
 DefaultContentLanguage = "ja"
-languageCode = "ja-JP"hasCJKLanguage = "true"
+languageCode = "ja-JP"
+hasCJKLanguage = "true"
 title = "JME's blog"
 enableRobotsTXT = "true"
 theme = "Mainroad"
