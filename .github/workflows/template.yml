@@ -26,4 +26,4 @@ jobs:
       - name: Create
         run: hugo new ./post/${{ github.event.inputs.filename }}
       - name: Show
-        run: ls ./content/post/2021/2
+        run: ls -R -1
