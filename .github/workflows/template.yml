@@ -23,7 +23,7 @@ jobs:
         with:
           hugo-version: '0.80.0'
 
-      - name: Build
-        run: |
-        hugo new ./post/${{ github.event.inputs.filename }}
-        cat ./post/${{ github.event.inputs.filename }}
+      - name: Create
+        run: hugo new ./post/${{ github.event.inputs.filename }}
+      - name: Show
+        run: cat ./post/${{ github.event.inputs.filename }}
