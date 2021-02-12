@@ -1,0 +1,29 @@
+name: create template
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+    inputs:
+      filename:
+        description: 'filename'
+        required: true
+        default: ''
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.80.0'
+
+      - name: Build
+        run: |
+        hugo new ./post/${{ github.event.inputs.filename }}
+        cat ./post/${{ github.event.inputs.filename }}
