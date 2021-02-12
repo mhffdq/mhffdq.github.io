@@ -1,0 +1,13 @@
+name: Daily Deploy
+
+on:
+  push:
+    branches:
+      - gh-pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: PostTweet
+      run: curl -X POST -d value='tweet' ${{ secrets.WEBHOOKURL }}
