@@ -26,4 +26,9 @@ jobs:
       - name: Create
         run: hugo new ./post/${{ github.event.inputs.filename }}
       - name: Show
-        run: echo $GITHUB_ACTOR
+        run: |
+            /usr/bin/git add ./content/post/${{ github.event.inputs.filename }}
+            /usr/bin/git config user.name $GITHUB_ACTOR
+            /usr/bin/git config user.email $GITHUB_ACTOR@users.noreply.github.com
+            /usr/bin/git commit -m "add: {{ github.event.inputs.filename }}"
+            /usr/bin/git push origin master
