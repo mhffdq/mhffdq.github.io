@@ -1,7 +1,7 @@
 name: github pages
 
 on:
-  workflow_dispatch:
+  push:
     branches:
       - main
 
@@ -31,4 +31,4 @@ jobs:
         env:
           SUPER_SECRET: ${{ secrets.WEBHOOKURL }}
         run: |
-           curl -X POST -H "Content-Type: application/json" -d '{"value1":"ブログ更新" }' ${{ env.SUPER_SECRET }}
+           curl -X POST -H "Content-Type: application/json" -d '{"value1":"ブログ更新 ${{ github.event_name }} ${{ github.run_number }}" }' ${{ env.SUPER_SECRET }}
