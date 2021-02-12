@@ -13,5 +13,5 @@ jobs:
       env:
           SUPER_SECRET: ${{ secrets.WEBHOOKURL }}
       run: |
-           curl -X POST -H "Content-Type: application/json" -d '{"value1":"tweet $GITHUB_RUN_NUMBER" }' ${{ env.SUPER_SECRET }}
+           curl -X POST -H "Content-Type: application/json" -d '{"value1":"tweet ${{ GITHUB_RUN_NUMBER }}" }' ${{ env.SUPER_SECRET }}
       
