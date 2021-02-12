@@ -12,4 +12,4 @@ jobs:
     - name: PostTweet
       env:
           SUPER_SECRET: ${{ secrets.WEBHOOKURL }}
-      run: curl -X POST -d Value1='tweet${{ env.GITHUB_RUN_NUMBER }}' ${{ env.SUPER_SECRET }}
+      run: curl -X POST -d '{"Value1":"tweet${{ env.GITHUB_RUN_NUMBER }}" }' ${{ env.SUPER_SECRET }}
