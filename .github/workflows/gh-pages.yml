@@ -25,5 +25,10 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PUSH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+      - name: PostTweet
+        env:
+          SUPER_SECRET: ${{ secrets.WEBHOOKURL }}
+        run: |
+           curl -X POST -H "Content-Type: application/json" -d '{"value1":"ブログ更新" }' ${{ env.SUPER_SECRET }}
