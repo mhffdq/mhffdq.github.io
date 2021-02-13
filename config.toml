@@ -6,6 +6,8 @@ title = "JME's blog"
 enableRobotsTXT = "true"
 theme = "Mainroad"
 enableGitInfo = true
+googleAnalytics = "UA-32359859-2"
+
 [Author] # Used in authorbox
   name = "jme/k.h"
   bio = "管理人"
@@ -49,3 +51,4 @@ expiryDate = ["expiryDate"]
   Name = "タグ"
   URL = "/tags/"
   weight = 3
+  
