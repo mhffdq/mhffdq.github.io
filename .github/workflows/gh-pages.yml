@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-    - '**.md'
-
+    - 'content/post/**.md'
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
