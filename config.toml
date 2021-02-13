@@ -52,3 +52,6 @@ expiryDate = ["expiryDate"]
   URL = "/tags/"
   weight = 3
   
+[[Menus.footer]]
+  Name = "プライバシーポリシー"
+  URL = "/privacy/"
