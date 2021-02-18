@@ -21,5 +21,19 @@ jobs:
       - name: Create
         run: |
             today=$(date "+%Y%m%d")
-            echo ./post/$today.md
-     
+            hugo new ./post/tweets/$today.md
+      - name: edit
+        env: 
+          URL_SECRET: ${{ secrets.GAS_URL }}
+          KEY_SECRET: ${{ secrets.GAS_OAUTH }}
+        run: |
+            today=$(date "+%Y%m%d")
+            curl -L $URL_SECRET -H "Authorization: Bearer $KEY_SECRET" |jq -r ' .[]'>> ./content/post/tweets/$today.md
+      - name: push
+        run: |
+            today=$(date "+%Y%m%d")
+            /usr/bin/git add ./content/post/tweets/$today.md
+            /usr/bin/git config user.name $GITHUB_ACTOR
+            /usr/bin/git config user.email $GITHUB_ACTOR@users.noreply.github.com
+            /usr/bin/git commit -m "https://mhffdq.github.io/post/tweets/$today.md"
+            /usr/bin/git push origin main
