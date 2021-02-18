@@ -1,0 +1,25 @@
+name: dailytweet
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.80.0'
+
+      - name: Create
+        run: |
+            today=$(date "+%Y%m%d")
+            echo ./post/$today.md
+     
