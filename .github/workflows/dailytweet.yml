@@ -19,17 +19,17 @@ jobs:
 
       - name: Create
         run: |
-            today=$(date "+%Y%m%d")
-            hugo new ./post/tweets/$today.md
+            yesterday=$(date --date '1 day ago' "+%Y%m%d")
+            hugo new ./post/tweets/$yesterday.md
       - name: edit
         run: |
-            today=$(date "+%Y%m%d")
-            echo '${{ toJSON(github.event.client_payload) }}' |jq -r ' .tweets[]|awk '{printf "{{<tweet %s>}}\n",$0}'>> ./content/post/tweets/$today.md
+            yesterday=$(date --date '1 day ago' "+%Y%m%d")
+            echo '${{ toJSON(github.event.client_payload) }}' |jq -r ' .tweets[]|awk '{printf "{{<tweet %s>}}\n",$0}'>> ./content/post/tweets/$yesterday.md
       - name: push
         run: |
-            today=$(date "+%Y%m%d")
+            yesterday=$(date --date '1 day ago' "+%Y%m%d")
             /usr/bin/git add ./content/post/tweets/$today.md
             /usr/bin/git config user.name $GITHUB_ACTOR
             /usr/bin/git config user.email $GITHUB_ACTOR@users.noreply.github.com
-            /usr/bin/git commit -m "$todayのツイートまとめ https://mhffdq.github.io/post/tweets/$today"
+            /usr/bin/git commit -m "$todayのツイートまとめ https://mhffdq.github.io/post/tweets/$yesterday"
             /usr/bin/git push origin main
