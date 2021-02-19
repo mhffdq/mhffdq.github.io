@@ -7,6 +7,9 @@ on:
     paths:
     - 'content/post/**.md'
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - dailytweet
 jobs:
   deploy:
     runs-on: ubuntu-18.04
