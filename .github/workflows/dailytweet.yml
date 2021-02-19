@@ -1,9 +1,8 @@
 name: dailytweet
 
 on:
-  workflow_dispatch:
-    branches:
-      - main
+  repository_dispatch:
+    types: [maketweet]
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -28,7 +27,8 @@ jobs:
           KEY_SECRET: ${{ secrets.GAS_OAUTH }}
         run: |
             today=$(date "+%Y%m%d")
-            curl -L $URL_SECRET -H "Authorization: Bearer $KEY_SECRET" |jq -r ' .[]'>> ./content/post/tweets/$today.md
+            echo "${{ toJSON(github.event.client_payload) }}"
+            echo "${{ toJSON(github.event.client_payload) }}" |jq -r ' .[]'>> ./content/post/tweets/$today.md
       - name: push
         run: |
             today=$(date "+%Y%m%d")
