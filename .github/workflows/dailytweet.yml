@@ -22,13 +22,10 @@ jobs:
             today=$(date "+%Y%m%d")
             hugo new ./post/tweets/$today.md
       - name: edit
-        env: 
-          URL_SECRET: ${{ secrets.GAS_URL }}
-          KEY_SECRET: ${{ secrets.GAS_OAUTH }}
         run: |
             today=$(date "+%Y%m%d")
-            echo "${{ toJSON(github.event.client_payload) }}"
-            echo "${{ toJSON(github.event.client_payload) }}" |jq -r ' .[]'>> ./content/post/tweets/$today.md
+            echo "${{ github.event.client_payload }}"
+            echo "${{ github.event.client_payload }}" |jq -r ' .[]'>> ./content/post/tweets/$today.md
       - name: push
         run: |
             today=$(date "+%Y%m%d")
