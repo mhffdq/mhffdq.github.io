@@ -24,7 +24,7 @@ jobs:
       - name: edit
         run: |
             yesterday=$(TZ=-9 date --date '1 day ago' "+%Y%m%d")
-            echo '${{ toJSON(github.event.client_payload) }}' |jq -r ' .tweets[]|awk '{printf "{{<tweet %s>}}\n",$0}'>> ./content/post/tweets/$yesterday.md
+            echo '${{ toJSON(github.event.client_payload) }}' |jq -r .tweets[]|awk '{printf "{{<tweet %s>}}\n",$0}'>> ./content/post/tweets/$yesterday.md
       - name: push
         env:
             PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
