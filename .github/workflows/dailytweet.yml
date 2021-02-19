@@ -24,8 +24,7 @@ jobs:
       - name: edit
         run: |
             today=$(date "+%Y%m%d")
-            echo "${{ github.event.client_payload }}"
-            echo "${{ github.event.client_payload }}" |jq -r ' .[]'>> ./content/post/tweets/$today.md
+            echo '${{ toJSON(github.event.client_payload) }}' |jq -r ' .[]'>> ./content/post/tweets/$today.md
       - name: push
         run: |
             today=$(date "+%Y%m%d")
