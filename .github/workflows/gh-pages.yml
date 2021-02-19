@@ -7,10 +7,8 @@ on:
     paths:
     - 'content/post/**.md'
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - dailytweet
 jobs:
+  if: ${{ github.event.workflow_run.conclusion == 'success' }}
   deploy:
     runs-on: ubuntu-18.04
     steps:
