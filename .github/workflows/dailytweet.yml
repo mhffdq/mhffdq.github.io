@@ -20,7 +20,7 @@ jobs:
       - name: Create
         run: |
             yesterday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y%m%d")
-            hugo new ./post/tweets/$yesterday.md
+            hugo new ./post/tweets/$yesterday.md　--kind tweets
       - name: edit
         run: |
             yesterday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y%m%d")
