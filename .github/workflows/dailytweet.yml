@@ -24,7 +24,6 @@ jobs:
       - name: edit
         run: |            
             yesterday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y%m%d")
-            echo -e $yesterday'に行ったツイートです。\n<!--more-->'>> ./content/post/tweets/$yesterday.md
             echo '${{ toJSON(github.event.client_payload) }}' |jq -r .tweets[]|awk '{printf "{{<tweet %s>}}\n\n",$0}'>> ./content/post/tweets/$yesterday.md
       - name: push
         env:
