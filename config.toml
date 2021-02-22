@@ -24,7 +24,11 @@ expiryDate = ["expiryDate"]
    post_meta = ["date", "categories"] # Order of post meta information
    mainSections = ["post"]
    dateformat = "2006-01-02" # Change the format of dates
+   images = ["img/logo.png"]
    
+[Params.logo]
+  image = "img/logo.png" # Logo image. Path relative to "static"
+  
 [Params.sidebar]
   home = "right" # Configure layout for home page
   list = "right"  # Configure layout for list pages
