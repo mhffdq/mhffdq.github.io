@@ -25,7 +25,7 @@ expiryDate = ["expiryDate"]
    mainSections = ["post"]
    dateformat = "2006-01-02" # Change the format of dates
    images = ["img/logo.png"]
-   customCSS = ["css/share.css"]
+   customCSS = ["css/share.css","css/fontawesome_all.min.css"]
 [Params.logo]
   image = "img/logo.png" # Logo image. Path relative to "static"
   
