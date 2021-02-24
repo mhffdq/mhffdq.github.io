@@ -41,7 +41,14 @@ expiryDate = ["expiryDate"]
 [Params.widgets.social]
   twitter = "JME_KH"
   
-  [[Menus.main]]
+[[Params.widgets.social.custom]]
+  title = "Steam"
+  url = "https://steamcommunity.com/profiles/76561198028928185/"
+[[Params.widgets.social.custom]]
+  title = "github"
+  url = "https://github.com/mhffdq"
+  
+[[Menus.main]]
   Name = "トップ"
   URL = "/"
   weight = 1
