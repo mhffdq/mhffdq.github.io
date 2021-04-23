@@ -1,0 +1,8 @@
+{{- $recent := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{- $recent_num := (.Site.Params.widgets.recent_num | default 10) }}
+
+{{- if $recent }}
+
+<iframe src="https://mhffdq.github.io/recent.js">
+</iframe>
+{{- end }}
