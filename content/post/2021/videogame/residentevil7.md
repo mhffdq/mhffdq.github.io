@@ -20,3 +20,7 @@ tags:
 {{< youtube id="Km-AycMliCE" autoplay="true" >}}
 {{< youtube id="Da_U_7gt9aw" autoplay="true" >}}
 {{< youtube id="f-flhPMkHRo" autoplay="true" >}}
+{{< youtube id="EuzT1UqVGCI" autoplay="true" >}}
+{{< youtube id="ID9cOJzqaug" autoplay="true" >}}
+{{< youtube id="eq1dM5QLf74" autoplay="true" >}}
+{{< youtube id="ioNjb_cNEmU" autoplay="true" >}}
