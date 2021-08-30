@@ -7,7 +7,7 @@ categories:
   - ""
 tags:
   - ""
-draft:true
+draft: true
 ---
 以下ネタバレあり
 <!--more-->
