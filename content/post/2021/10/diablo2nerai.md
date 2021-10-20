@@ -14,5 +14,6 @@ tags:
 頭でスキル+1稼ぐ　2穴でRW Lore
 
 傭兵ようにCrushing BlowにOpen Wound そのための3穴鎧
+Guillaume's Face
 
 Ral Runeは3つ合わせない
