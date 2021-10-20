@@ -14,3 +14,5 @@ tags:
 頭でスキル+1稼ぐ　最悪2穴
 
 傭兵ようにCrushing BlowにOpen Wound そのための3穴鎧
+
+Ral Runeは3つ合わせない
