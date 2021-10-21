@@ -17,3 +17,6 @@ tags:
 Guillaume's Face
 
 Ral Runeは3つ合わせない
+
+SC マジックアイテムドロップ率
+耐性11% そのあたり
