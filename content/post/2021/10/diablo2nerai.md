@@ -13,7 +13,7 @@ tags:
 ネクロ専用盾穴2スキルついたやつ　もしくは4穴盾
 頭でスキル+1稼ぐ　2穴でRW Lore
 
-傭兵ようにCrushing BlowにOpen Wound そのための3穴鎧　Shael + Um + Thul
+傭兵ようにCrushing BlowにOpen Wound そのための3穴鎧　Shael + Um + Thul Umが難関<br>
 Guillaume's Face
 
 Ral Runeは3つ合わせない
