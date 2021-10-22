@@ -32,3 +32,10 @@ NMおばさん周回して穴あけ用稼ぐ？それならできるならHell�
 一番重要なのがスケルトン2つのスキルレベルか今3上がってる
 2穴の頭なら選ばなければつくから4
 156まで振ってMonarchでRW spiritが確実ではあるか？もったいないけど
+
+なんか配信者が3回吠えてるのは<br>
++2-6 To Battle Command (varies)*<br>
++1-6 To Battle Orders (varies)*<br>
++1-4 To Battle Cry (varies)*<br>
+だな.RW Call to Arms<br>
+当分縁のないRW
