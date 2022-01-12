@@ -8,3 +8,5 @@ categories:
 tags:
   - ""
 ---
+The Bladecoder Adventure Engine is a set of tools to create interactive graphic adventures (classical point and click games).
+https://github.com/bladecoder/bladecoder-adventure-engine
