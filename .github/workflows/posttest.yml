@@ -17,6 +17,6 @@ jobs:
             echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[] | jq length
             len=$(echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[] | jq length)
             for i in $( seq 0 $(($len - 1)) ); do
-              row=$(echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[i])
+            row=$(echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[i])
             done
     
