@@ -14,5 +14,5 @@ jobs:
             echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'
             echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'|sed 's/"$//g'
             echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'|sed 's/"$//g'| awk '{printf "{{<tweetlike %s>}}\n\n",$0}'
-            echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[] 'fromjson'
+            echo '${{ toJSON(github.event.client_payload) }}' |jq -cR 'fromjson' .tweets[]
     
