@@ -1,0 +1,13 @@
+name: posttest
+
+on:
+  repository_dispatch:
+    types: [posttest]
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: edit
+        run: |  
+            echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'|sed 's/"$//g'| awk '{printf "{{<tweetlike %s>}}\n\n",$0}'
+    
