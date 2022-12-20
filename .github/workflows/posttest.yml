@@ -13,8 +13,6 @@ jobs:
             echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'
             echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'|sed 's/"$//g'
             echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'|sed 's/"$//g'| awk '{printf "{{<tweetlike %s>}}\n\n",$0}'
-            echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[] | jq length
-            len=$(echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[] | jq length)
-            echo $len
+            echo '${{ toJSON(github.event.client_payload) }}' |jq 'fromjson | .tweets[]'
             done
     
