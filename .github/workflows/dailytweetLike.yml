@@ -30,7 +30,10 @@ jobs:
             yesterdayyear=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y")
             yesterdaymonthday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%m"%d)
             echo -e $yesterday'に行ったツイートです。\n<!--more-->'>> ./content/tweets/$yesterdayyear/$yesterdaymonthday.md
-            echo '${{ toJSON(github.event.client_payload) }}' |jq -r .tweets[]| awk '{printf "{{<tweetlike %s>}}\n\n",$0}'>> ./content/tweets/$yesterdayyear/$yesterdaymonthday.md
+            len=$(echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets|jq length)
+            for i in $( seq 0 $(($len - 1)) ); do
+            echo '{'${{ toJSON(github.event.client_payload) }}'|jq -r .tweets[$i]|echo "{{<tweetlike $(cat)>}}";
+            done>> ./content/tweets/$yesterdayyear/$yesterdaymonthday.md
       - name: push
         env:
             PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
