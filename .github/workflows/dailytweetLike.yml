@@ -32,7 +32,7 @@ jobs:
             echo -e $yesterday'に行ったツイートです。\n<!--more-->'>> ./content/tweets/$yesterdayyear/$yesterdaymonthday.md
             len=$(echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets|jq length)
             echo $len
-            for i in $( seq 0 $(($len - 1)) ); do
+            for i in $( seq 0 23 ); do
             echo '{'${{ toJSON(github.event.client_payload) }}'|jq -r .tweets[$i]|echo "{{<tweetlike $(cat)>}}";
             done>> ./content/tweets/$yesterdayyear/$yesterdaymonthday.md
       - name: push
