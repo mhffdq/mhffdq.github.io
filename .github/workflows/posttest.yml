@@ -13,6 +13,6 @@ jobs:
             len=$(echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets|jq length)
             echo $len
             for i in $( seq 0 $(($len - 1)) ); do
-            echo '${{ toJSON(github.event.client_payload) }}'|jq .tweets[$i]|echo -n "{{<tweetlike $(cat)>}}";echo;echo;
+            echo '${{ toJSON(github.event.client_payload) }}'|jq -r .tweets[$i]|echo -n "{{<tweetlike $(cat)>}}";echo;echo;
             done
     
