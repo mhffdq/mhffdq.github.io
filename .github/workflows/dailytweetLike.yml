@@ -33,7 +33,7 @@ jobs:
             len=$(echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets|jq length)
             echo $len
             for i in $( seq 0 $(($len - 1)) ); do
-            echo '${{ toJSON(github.event.client_payload) }}'|jq -r .tweets[$i]|echo -n "{{<tweetlike $(cat)>}}"|sed -z "s/\n/\\\\n/g";echo;echo;  done>> ./content/tweets/$yesterdayyear/$yesterdaymonthday.md
+            echo '${{ toJSON(github.event.client_payload) }}'|jq -r .tweets[$i]|echo -n "{{<tweetlike $(cat)>}}";echo;echo;  done>> ./content/tweets/$yesterdayyear/$yesterdaymonthday.md
       - name: push
         env:
             PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
