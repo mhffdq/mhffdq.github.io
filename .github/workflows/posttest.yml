@@ -12,11 +12,6 @@ jobs:
             echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]
             echo $len
             for i in $( seq 0 $(($len - 1)) ); do
-            echo '${{ toJSON(github.event.client_payload) }}'|jq .tweets[$i]|echo -n "{{<tweetlike $(cat)>}}";echo;echo;done
-            echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'
-            echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'|sed 's/"$//g'
-            echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets[]|sed 's/^"//g'|sed 's/"$//g'| awk '{printf "{{<tweetlike %s>}}\n\n",$0}'
-            echo '${{ toJSON(github.event.client_payload) }}' |jq -cR '.tweets |fromjson?'
-            len=$(echo '${{ toJSON(github.event.client_payload) }}' |jq .tweets|jq length)
+            echo '${{ toJSON(github.event.client_payload) }}'|jq -r .tweets[$i]|echo -n "{{<tweetlike $(cat)>}}";echo;echo;done
             done
     
