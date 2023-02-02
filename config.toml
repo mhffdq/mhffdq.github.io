@@ -46,7 +46,6 @@ expiryDate = ["expiryDate"]
   title = "Steam"
   url = "https://steamcommunity.com/profiles/76561198028928185/"
   #icon = "fa-brands fa-steam"
-  
 [[Params.widgets.social.custom]]
   title = "Pleroma"
   url = "https://qunagi.qunagi.net/users/Qunagi"
