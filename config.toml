@@ -40,14 +40,15 @@ expiryDate = ["expiryDate"]
   
 [Params.widgets.social]
   twitter = "JME_KH"
-  
+  github = "mhffdq"
+
 [[Params.widgets.social.custom]]
   title = "Steam"
   url = "https://steamcommunity.com/profiles/76561198028928185/"
   icon = "fa-brands fa-steam"
-  
-[[Params.widgets.social]]
-  github = "mhffdq"
+[[Params.widgets.social.custom]]
+  title = "Pleroma"
+  url = "https://qunagi.qunagi.net/users/Qunagi"
   
 [[Menus.main]]
   Name = "トップ"
