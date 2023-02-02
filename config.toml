@@ -44,9 +44,9 @@ expiryDate = ["expiryDate"]
 [[Params.widgets.social.custom]]
   title = "Steam"
   url = "https://steamcommunity.com/profiles/76561198028928185/"
-[[Params.widgets.social.custom]]
-  title = "github"
-  url = "https://github.com/mhffdq"
+  icon = "fa-brands fa-steam"
+[[Params.widgets.social]]
+  github = "mhffdq"
   
 [[Menus.main]]
   Name = "トップ"
