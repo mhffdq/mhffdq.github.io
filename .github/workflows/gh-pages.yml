@@ -29,8 +29,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-      - name: PostTweet
-        env:
-          SUPER_SECRET: ${{ secrets.WEBHOOKURL }}
-        run: |
-           curl -X POST -H "Content-Type: application/json" -d '{"value1":"更新 ${{ github.event.head_commit.message }} ${{ github.run_number }}" }' ${{ env.SUPER_SECRET }}
+#      - name: PostTweet
+#        env:
+#          SUPER_SECRET: ${{ secrets.WEBHOOKURL }}
+#        run: |
+#           curl -X POST -H "Content-Type: application/json" -d '{"value1":"更新 ${{ github.event.head_commit.message }} ${{ github.run_number }}" }' ${{ env.SUPER_SECRET }}
