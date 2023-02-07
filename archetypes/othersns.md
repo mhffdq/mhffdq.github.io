@@ -1,5 +1,5 @@
 ---
-title: "{{ replace .TranslationBaseName '-' ' ' | title }}の"投稿"
+title: "{{ replace .TranslationBaseName '-' ' ' | title }}の投稿"
 description: ""
 date: "{{ .Date }}"
 thumbnail: ""
