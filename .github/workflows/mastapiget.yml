@@ -1,0 +1,49 @@
+name: mastapiget
+
+on:
+  schedule:
+    # 定期実行する時間・・・①
+    - cron: '17 9 * * *'
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch Hugo themes
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          token: ${{ secrets.PUSH_TOKEN }}
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.80.0'
+
+      - name: Create
+        run: |
+            yesterday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y%m%d")
+            yesterdayyear=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y")
+            yesterdaymonthday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%m"%d)
+            hugo new --kind othersns ./othersns/$yesterdayyear/$yesterdaymonthday.md
+            cat ./content/othersns/$yesterdayyear/$yesterdaymonthday.md
+      - name: edit
+        run: |            
+            yesterday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y%m%d")
+            yesterdayyear=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y")
+            yesterdaymonthday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%m"%d)
+            yseterdayhifun=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y-%m-%d")
+            echo -e $yesterday'に行ったツイートです。\n<!--more-->'>> ./content/othersns/$yesterdayyear/$yesterdaymonthday.md
+            content=$(curl -X GET https://qunagi.qunagi.net/api/v1/accounts/Qunagi/statuses --header 'Authorizastatuses Bearer $QUNAGI_PLE_TOKEN')
+            echo $content|jq -r '.[]|select(.created_at >= "'$yseterdayhifun'")|"{{<othersns text=\""+.content +"\" date=\""+.created_at+"\" url=\""+.url+"\" screenname=\""+.account.acct+"\">}}"'>> ./content/othersns/$yesterdayyear/$yesterdaymonthday.md
+      - name: push
+        env:
+            PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+        run: |
+            yesterday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y%m%d")
+            yesterdayyear=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y")
+            yesterdaymonthday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%m"%d)
+            /usr/bin/git add ./content/othersns/$yesterdayyear/$yesterdaymonthday.md
+            /usr/bin/git config user.name $GITHUB_ACTOR
+            /usr/bin/git config user.email $GITHUB_ACTOR@users.noreply.github.com
+            /usr/bin/git commit -m "$yesterdayのツイートまとめ https://mhffdq.github.io/othersns/$yesterdayyear/$yesterdaymonthday/"
+            /usr/bin/git push https://x-access-token:$PUSH_TOKEN@github.com/mhffdq/mhffdq.github.io.git main
