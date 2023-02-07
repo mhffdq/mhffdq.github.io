@@ -2,8 +2,8 @@ name: mastapiget
 
 on:
   schedule:
-    # 定期実行する時間・・・①
-    - cron: '17 9 * * *'
+    # 定期実行する時間・・・
+    - cron: '17 15 * * *'
   workflow_dispatch:
 jobs:
   deploy:
