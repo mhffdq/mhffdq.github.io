@@ -33,7 +33,7 @@ jobs:
             yesterdaymonthday=$(TZ=Asia/Tokyo date --date '1 day ago' "+%m"%d)
             yseterdayhifun=$(TZ=Asia/Tokyo date --date '1 day ago' "+%Y-%m-%d")
             echo -e $yesterday'に行ったツイートです。\n<!--more-->'>> ./content/othersns/$yesterdayyear/$yesterdaymonthday.md
-            content=$(curl -X GET https://qunagi.qunagi.net/api/v1/accounts/Qunagi/statuses --header 'Authorizastatuses Bearer $QUNAGI_PLE_TOKEN')
+            content=$(curl -X GET https://qunagi.qunagi.net/api/v1/accounts/Qunagi/statuses?exclude_reblogs=true --header 'Authorizastatuses Bearer $QUNAGI_PLE_TOKEN')
             echo $content|jq -r '.[]|select(.created_at >= "'$yseterdayhifun'")|"{{<othersns text=\""+.content +"\" date=\""+.created_at+"\" url=\""+.url+"\" screenname=\""+.account.acct+"\">}}"'>> ./content/othersns/$yesterdayyear/$yesterdaymonthday.md
       - name: push
         env:
