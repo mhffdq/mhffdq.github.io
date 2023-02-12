@@ -34,7 +34,7 @@ jobs:
             yseterdayhifun=$(date --date '1 day ago' -Iminutes)
             echo -e $yesterday'に行ったツイートです。\n<!--more-->'>> ./content/othersns/$yesterdayyear/$yesterdaymonthday.md
             content=$(curl -X GET 'https://qunagi.qunagi.net/api/v1/accounts/Qunagi/statuses?exclude_reblogs=true&limit=40' --header 'Authorizastatuses Bearer $QUNAGI_PLE_TOKEN')
-            echo $content|jq -c '.[]|select(.created_at >= "'$yseterdayhifun'")|[.content, .url, .account.display_name, .created_at]'|awk -F, '{printf "{{<othersns text=%s url=%s screenname=%s date=%s>}}\n",$1,$2,$3,$4}'|sed -e 's/^{{<othersns text=\[/{{<othersns text=/g' -e 's/\]$//g'>> ./content/othersns/$yesterdayyear/$yesterdaymonthday.md
+            echo $content|jq -c '.[]|select(.created_at >= "'$yseterdayhifun'")|[.content, .url, .account.display_name, .created_at]'|awk -F, '{printf "{{<othersns text=%s url=%s screenname=%s date=%s>}}\n",$1,$2,$3,$4}'|sed -e 's/^{{<othersns text=\[/{{<othersns text=/g' -e 's/\]>\}\}$/\>\}\}/g'>> ./content/othersns/$yesterdayyear/$yesterdaymonthday.md
       - name: push
         env:
             PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
