@@ -21,7 +21,7 @@ expiryDate = ["expiryDate"]
 [Params]
    twitter_cards = true # Enable Twitter Cards if true
    pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
-   post_meta = ["date", "categories"] # Order of post meta information
+   post_meta = ["date", "tags"] # Order of post meta information
    mainSections = ["post"]
    dateformat = "2006-01-02" # Change the format of dates
    images = ["img/logo.png"]
@@ -34,7 +34,7 @@ expiryDate = ["expiryDate"]
   list = "right"  # Configure layout for list pages
   single = "right" # Configure layout for single pages
   # Enable widgets in given order
-  widgets = ["search", "recent", "categories", "taglist", "social"]
+  widgets = ["search", "recent", "taglist", "social"]
   # alternatively "ddg-search" can be used, to search via DuckDuckGo
   # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
   
@@ -56,14 +56,9 @@ expiryDate = ["expiryDate"]
   weight = 1
 
 [[Menus.main]]
-  Name = "カテゴリー"
-  URL = "/categories/"
-  weight = 2
-
-[[Menus.main]]
   Name = "タグ"
   URL = "/tags/"
-  weight = 3
+  weight = 2
   
 [[Menus.footer]]
   Name = "プライバシーポリシー"
