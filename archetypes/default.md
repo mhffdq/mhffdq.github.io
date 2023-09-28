@@ -3,6 +3,6 @@ title: "{{ replace .TranslationBaseName '-' ' ' | title }}"
 description: ""
 date: "{{ .Date }}"
 thumbnail: ""
-tags:
+categories:
   - ""
 ---
