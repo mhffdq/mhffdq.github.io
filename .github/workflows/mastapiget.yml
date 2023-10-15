@@ -36,7 +36,7 @@ jobs:
             yseterdayhifun=$(date --date '1 day ago' -Iminutes)
             echo -e $yesterday'に行った投稿です。\n<!--more-->'>> ./static/othersns/$yesterdayyear/$yesterdaymonthday.md
             content=$(curl -X GET 'https://qunagi.qunagi.net/api/v1/accounts/Qunagi/statuses?exclude_reblogs=true&limit=40' --header 'Authorizastatuses Bearer $QUNAGI_PLE_TOKEN')
-            length=$(echo $content|jq -c '.[]|select(.created_at >= "'2023-10-12'")|[.content, .account.display_name]'|jq -s 'length')
+            length=$(echo $content|jq -c '.[]|select(.created_at >= "'$yseterdayhifun'")|[.content, .account.display_name]'|jq -s 'length')
             echo LENGTH=$length >> $GITHUB_ENV
             if [ $length -ne 0 ]; then
               echo $content|jq -c '.[]|select(.created_at >= "'$yseterdayhifun'")|[.content, .url, .account.display_name, .created_at]'|awk -F, '{printf "{{<othersns text=%s url=%s screenname=%s date=%s>}}\n",$1,$2,$3,$4}'|sed -e 's/^{{<othersns text=\[/{{<othersns text=/g' -e 's/\]>\}\}$/\>\}\}/g'>> ./static/othersns/$yesterdayyear/$yesterdaymonthday.md
