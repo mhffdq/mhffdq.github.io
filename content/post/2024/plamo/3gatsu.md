@@ -1,5 +1,5 @@
 ---
-title: "3gatsu"
+title: "プラモデル現在の考え"
 description: ""
 date: "2024-03-21T06:03:22Z"
 thumbnail: ""
